@@ -73,7 +73,7 @@ def params(**kwargs):
                     if (sys.version_info > (3, 0)):
                         param = str(param)
                     else:
-                        param = unicode(param)
+                        param = str(param)
                 elif self.param_type == bool:
                     param = str(param).lower()  # bool isn't case sensitive
                     if param in TRUE_VALUES:
