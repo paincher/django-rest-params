@@ -73,8 +73,8 @@ def params(**kwargs):
                         assert(isinstance(param, (str)))
                         param = str(param)
                     else:
-                        assert(isinstance(param, (str, unicode)))
-                        param = unicode(param)
+                        assert(isinstance(param, (str)))
+                        param = str(param)
                 elif self.param_type == bool:
                     param = str(param).lower()  # bool isn't case sensitive
                     if param in TRUE_VALUES:
