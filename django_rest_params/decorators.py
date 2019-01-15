@@ -69,11 +69,12 @@ def params(**kwargs):
                 elif self.param_type == float:
                     param = float(param)
                 elif self.param_type == str:
-                    assert(isinstance(param, (str, unicode)))
                     if (sys.version_info > (3, 0)):
+                        assert(isinstance(param, (str)))
                         param = str(param)
                     else:
-                        param = str(param)
+                        assert(isinstance(param, (str, unicode)))
+                        param = unicode(param)
                 elif self.param_type == bool:
                     param = str(param).lower()  # bool isn't case sensitive
                     if param in TRUE_VALUES:
