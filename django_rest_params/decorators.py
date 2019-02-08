@@ -196,7 +196,7 @@ def params(**kwargs):
                 request = args[0]  # request fn is a method, first_arg is 'self'
 
             request_method = request.META['REQUEST_METHOD']
-            default_param_method = 'POST' if request_method == 'POST' or request_method == 'PUT' else 'GET'
+            default_param_method = 'POST' if request_method == 'POST' or request_method == 'PUT' or request_method == 'PATCH' else 'GET'
             # Validate the params
             for arg_name, validator in validators.items():
                 param_name = validator.param_name
