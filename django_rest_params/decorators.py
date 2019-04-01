@@ -212,7 +212,7 @@ def params(**kwargs):
                     if (sys.version_info > (3, 0)):
                         data = dict(request.data)
                         param = data.get(param_name, None)
-                        if len(param) == 1:
+                        if isinstance(param, list) and len(param) == 1:
                             param = param[0]
                         # param = request.data.get(param_name, None)
                     else:
