@@ -210,7 +210,11 @@ def params(**kwargs):
                 param = None
                 if allow_POST:
                     if (sys.version_info > (3, 0)):
-                        param = request.data.get(param_name, None)
+                        data = dict(request.data)
+                        param = data.get(param_name, None)
+                        if len(param) == 1:
+                            param = param[0]
+                        # param = request.data.get(param_name, None)
                     else:
                         param = request.DATA.get(param_name, None)
                     param_type = 'POST'
