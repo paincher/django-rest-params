@@ -19,9 +19,9 @@ def params(**kwargs):
     # Types that we'll all for as 'tuple' params
     TUPLE_TYPES = tuple, set, frozenset, list
     if (sys.version_info > (3, 0)):
-        VALID_TYPES = int, float, str, bool
+        VALID_TYPES = int, float, str, bool, dict
     else:
-        VALID_TYPES = int, float, str, unicode, bool
+        VALID_TYPES = int, float, str, unicode, bool, dict
 
     class ParamValidator(object):
         # name
@@ -68,6 +68,8 @@ def params(**kwargs):
                     param = int(param)
                 elif self.param_type == float:
                     param = float(param)
+                elif self.param_type == dict:
+                    param = dict(param)
                 elif self.param_type == str:
                     if (sys.version_info > (3, 0)):
                         assert(isinstance(param, (str)))
